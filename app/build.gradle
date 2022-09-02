@@ -38,6 +38,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     def core_version = "1.8.0"
     def appcompat_version = "1.5.0"
     def mdc_version = "1.6.1"
