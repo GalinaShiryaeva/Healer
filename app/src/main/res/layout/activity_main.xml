@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
-    tools:context=".activity.AppActivity">
+    tools:context=".ui.AppActivity">
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -23,7 +23,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/bottom_navigation_menu"

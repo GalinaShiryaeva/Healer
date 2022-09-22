@@ -5,6 +5,8 @@
     <string name="bottom_navigation_menu_item_profile">Profile</string>
     <string name="text_episode_name">Last Episode</string>
     <string name="text_episode_duration">-placeholder-</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
