@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import ru.app.healer.data.dto.Episode
 import ru.app.healer.databinding.FragmentHomeBinding
+import ru.app.healer.ui.home.adapter.ListEpisodeAdapter
+import ru.app.healer.ui.home.adapter.OnEpisodeListener
 
 class HomeFragment : Fragment() {
 
@@ -22,11 +25,16 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        homeViewModel.label.observe(viewLifecycleOwner) {
-            binding.label.text = it
+        val adapter = ListEpisodeAdapter(object : OnEpisodeListener {
+            override fun onEpisode(episode: Episode) {
+                //FIXME ("Not yet implemented")
+            }
+        })
+        binding.list.adapter = adapter
+        homeViewModel.data.observe(viewLifecycleOwner) { episodes ->
+            adapter.submitList(episodes)
         }
 
         return binding.root
