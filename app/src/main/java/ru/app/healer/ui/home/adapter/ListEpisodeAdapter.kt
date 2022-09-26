@@ -2,15 +2,18 @@ package ru.app.healer.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.app.healer.R
-import ru.app.healer.data.dto.Episode
+import ru.app.healer.data.repository.Episode
 import ru.app.healer.databinding.ItemEpisodeBinding
 
 interface OnEpisodeListener {
     fun onEpisode(episode: Episode)
+    fun onEdit(episode: Episode)
+    fun onRemove(episode: Episode)
 }
 
 class ListEpisodeAdapter(
@@ -30,6 +33,24 @@ class ListEpisodeAdapter(
                 )
                 item.setOnClickListener {
                     listener.onEpisode(episode)
+                }
+                menu.setOnClickListener {
+                    PopupMenu(it.context, it).apply {
+                        inflate(R.menu.episode_item_menu)
+                        setOnMenuItemClickListener { menuItem ->
+                            when (menuItem.itemId) {
+                                R.id.edit -> {
+                                    listener.onEdit(episode)
+                                    return@setOnMenuItemClickListener true
+                                }
+                                R.id.remove -> {
+                                    listener.onRemove(episode)
+                                    return@setOnMenuItemClickListener true
+                                }
+                                else -> return@setOnMenuItemClickListener false
+                            }
+                        }
+                    }.show()
                 }
             }
         }

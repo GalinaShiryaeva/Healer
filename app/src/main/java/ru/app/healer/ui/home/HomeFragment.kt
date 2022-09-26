@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ru.app.healer.data.dto.Episode
+import ru.app.healer.data.repository.Episode
 import ru.app.healer.databinding.FragmentHomeBinding
 import ru.app.healer.ui.home.adapter.ListEpisodeAdapter
 import ru.app.healer.ui.home.adapter.OnEpisodeListener
@@ -30,6 +30,15 @@ class HomeFragment : Fragment() {
         val adapter = ListEpisodeAdapter(object : OnEpisodeListener {
             override fun onEpisode(episode: Episode) {
                 //FIXME ("Not yet implemented")
+            }
+
+            override fun onEdit(episode: Episode) {
+                homeViewModel.edit(episode)
+                //FIXME("Transfer to the Edit fragment")
+            }
+
+            override fun onRemove(episode: Episode) {
+                homeViewModel.removeById(episode.id)
             }
         })
         binding.list.adapter = adapter
