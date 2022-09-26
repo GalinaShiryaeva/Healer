@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import ru.app.healer.R
 import ru.app.healer.data.repository.Episode
 import ru.app.healer.databinding.FragmentHomeBinding
+import ru.app.healer.ui.home.EditEpisodeFragment.Companion.durationArg
+import ru.app.healer.ui.home.EditEpisodeFragment.Companion.nameArg
 import ru.app.healer.ui.home.adapter.ListEpisodeAdapter
 import ru.app.healer.ui.home.adapter.OnEpisodeListener
 
@@ -34,7 +38,13 @@ class HomeFragment : Fragment() {
 
             override fun onEdit(episode: Episode) {
                 homeViewModel.edit(episode)
-                //FIXME("Transfer to the Edit fragment")
+                findNavController().navigate(
+                    R.id.action_navigation_home_to_editEpisodeFragment,
+                    Bundle().apply {
+                        nameArg = episode.name
+                        durationArg = episode.duration
+                    }
+                )
             }
 
             override fun onRemove(episode: Episode) {
