@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Flu"
@@ -35,6 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/episode_name">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/duration_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"

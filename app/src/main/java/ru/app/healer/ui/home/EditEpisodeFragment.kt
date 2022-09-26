@@ -23,7 +23,12 @@ class EditEpisodeFragment : Fragment() {
             container,
             false
         )
-
+        arguments?.nameArg?.let {
+            binding.nameText.setText(it)
+        }
+        arguments?.durationArg.let {
+            binding.durationText.setText(it)
+        }
         return binding.root
     }
 
