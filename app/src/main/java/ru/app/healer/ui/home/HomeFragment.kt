@@ -19,6 +19,8 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    // нужно проверить гит!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
